@@ -14,4 +14,30 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void whenCalcIsCreatedStateIsInProgress() {
+
+        CalculatorHolder calculatorHolder = new CalculatorHolder();
+        calculatorHolder.insertCalculation(new RootLogic(45));
+        RootLogic rootLogic = calculatorHolder.calculator.get(0);
+        assertEquals(rootLogic.state, "inProgress");
+    }
+    @Test
+    public void whenCalcIsCreatedFirstRootIsZero() {
+
+        CalculatorHolder calculatorHolder = new CalculatorHolder();
+        calculatorHolder.insertCalculation(new RootLogic(45));
+        RootLogic rootLogic = calculatorHolder.calculator.get(0);
+        assertEquals(rootLogic.firstRoot, 0);
+    }
+    @Test
+    public void whenCalcIsCreatedSecondRootIsZero() {
+
+        CalculatorHolder calculatorHolder = new CalculatorHolder();
+        calculatorHolder.insertCalculation(new RootLogic(45));
+        RootLogic rootLogic = calculatorHolder.calculator.get(0);
+        assertEquals(rootLogic.secondRoot, 0);
+    }
 }
+
